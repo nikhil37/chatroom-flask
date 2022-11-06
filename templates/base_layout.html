@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %}
+		<title>Flack</title>
+	{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styling.css') }}">
+	<script type="text/javascript" src="{{ url_for('static',filename='texting.js') }}"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+</head>
+<body>
+	<div class="allchannels">
+		<p style="font-size: 35pt">{{username}}</p>
+		<!--<iframe src="" style="width: 0px; height:0px; background-color: purple;color:purple;" name="empty"></iframe>-->
+		<h4>Create room</h4>
+			<input id="nc" type="text" name="newchannel" style="width:90% ;">
+		<button id="newroombutton">Submit</button>
+		<h4>Active channels are:</h4>
+		<div class="list_of_channels" id="loc">
+			{% for i in channels %}
+			<a href="/cr/{{i}}" style="color: wheat;"><p>{{ i }}</p></a>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="chatroom">
+		{% block body %}
+		<p>{{username}}</p>	
+		{% endblock %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base_layout.html" %}
+{% block title %}
+	<title>Chatroom - {{chat["title"]}}</title>
+{% endblock %}
+{% block body %}
+	<div id="chatbox">
+		<p id="chattitle">{{chat["title"]}}</p>
+		<div id="alltexts">
+			{% for i in chat["timeandtext"] %}
+				<div class="eachtext">
+					<p class="sender"><a href="/cpm/{{i[0]}}">{{i[0]}}</a></p>
+					<p class="time">{{i[1]}}</p>
+					<p class="message">{{i[2]}}</p>
+				</div>
+			{% endfor %}
+		</div>
+		<input type="text" name="text" id="textinputfield" placeholder="Type here..">
+		<b><button id="sendtext">Send</button></b>
+	</div>
+{% endblock %}

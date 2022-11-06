@@ -1,0 +1,13 @@
+{% extends "base_layout.html" %}
+{% block title %}
+	<title>Flack</title>
+{% endblock %}
+
+{% block body %}
+<input type="hidden" name="textinputfield" id="textinputfield">
+<button id="sendtext" style="height: 0px; width: 0px;"></button>
+<div class="welcome">
+	<p id="welcome">Welcome</p><br>
+	<p id="usernamedisplay">Your Username is: {{username}}</p>
+</div>
+{% endblock %}
